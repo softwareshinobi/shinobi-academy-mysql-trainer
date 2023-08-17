@@ -26,7 +26,7 @@ services:
 
         volumes:
 
-            - ./volume-data/mysql-database:/var/lib/mysql
+            - ../container-volume-data/mysql-database:/var/lib/mysql
 
         environment:
 
