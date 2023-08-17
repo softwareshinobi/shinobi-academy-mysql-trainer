@@ -33,6 +33,18 @@ pipeline {
             }
 
         }
+        
+        stage('Remove docker image from local repository') {
+
+            steps {
+
+                sh 'cd build-automation;./build-pass-3-remove-docker-image-from-local.sh'
+
+            }
+
+        }      
+        
+        
               
     }
 
