@@ -12,7 +12,7 @@ services:
 
         container_name: software-shinobi-mysql-database
 
-        image: softwareshinobi/database-corporate-employees:latest
+        image: softwareshinobi/software-shinobi-mysql-training-database:latest
 
         restart: always
 
