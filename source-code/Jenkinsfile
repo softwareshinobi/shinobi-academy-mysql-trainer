@@ -3,16 +3,35 @@ pipeline {
 
     stages {
 
-        stage('Run Script') {
+
+                stage('Run 1111') {
             
             steps {
-                   sh 'pwd'
-                   sh 'chmod +x ./build-automation/build-pass-1-build-docker-image-from-dockerfile.sh'
-                   sh 'cd build-automation;./build-pass-1-build-docker-image-from-dockerfile.sh'
+                                   
+                   sh 'chmod +x ./build-automation/*.sh'                        
+                
             }
     
         }
+        
+        stage('Run Scrip2222t') {
+            
+            steps {
+                                                   
+                   sh 'cd build-automation;./build-pass-1-build-docker-image-from-dockerfile.sh'
+                
+            }
     
+        }
+            stage('Run Scrip2222t') {
+            
+            steps {
+                                                   
+                   sh 'cd build-automation;./build-pass-3-build-docker-image-from-dockerfile.sh'
+                
+            }
+    
+        }
     }
 
 }
