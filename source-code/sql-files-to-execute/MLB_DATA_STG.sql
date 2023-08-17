@@ -1,11 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.2.6deb1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Apr 24, 2015 at 12:37 AM
--- Server version: 5.5.41-0ubuntu0.14.10.1
--- PHP Version: 5.5.12-2ubuntu4.3
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`major_league_baseball` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `major_league_baseball`;
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";

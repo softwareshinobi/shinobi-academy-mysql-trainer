@@ -1,37 +1,39 @@
 pipeline {
+ 
     agent any
 
     stages {
 
+        stage('Mark build-automation scripts as executable') {
 
-                stage('Run 1111') {
-            
             steps {
-                                   
-                   sh 'chmod +x ./build-automation/*.sh'                        
-                
+
+                sh 'chmod +x ./build-automation/*.sh'                        
+
             }
-    
+
         }
         
-        stage('Run Scrip2222t') {
-            
+        stage('Build docker image from Dockerfile') {
+
             steps {
-                                                   
-                   sh 'cd build-automation;./build-pass-1-build-docker-image-from-dockerfile.sh'
-                
+
+                sh 'cd build-automation;./build-pass-1-build-docker-image-from-dockerfile.sh'
+
             }
-    
+
         }
-            stage('Run Scrssssip2222t') {
-            
+
+        stage('Push docker image to softwareshinobi DockerHub') {
+
             steps {
-                                                   
-                   sh 'cd build-automation;./build-pass-3-build-docker-image-from-dockerfile.sh'
-                
+
+                sh 'cd build-automation;./build-pass-2-push-docker-image-to-dockerhub.sh'
+
             }
-    
+
         }
+              
     }
 
 }
