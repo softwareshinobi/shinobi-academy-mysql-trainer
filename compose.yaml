@@ -2,57 +2,59 @@ version: "3"
 
 networks:
 
-    network-software-shinobi:
+    network-shinobi-academy:
 
         external: false
 
 services:
 
-    software-shinobi-mysql-database:
+    shinobi-academy-database:
 
-        container_name: software-shinobi-mysql-database
+        container_name: shinobi-academy-database
 
-        image: softwareshinobi/software-shinobi-mysql-training-database:latest
+        image: softwareshinobi/shinobi-academy-database
 
-        restart: always
+        build: 
 
-        networks:
+            context: .
 
-            - network-software-shinobi
-
-        ports:
-
-            - 3306:3306
-
-        volumes:
-
-            - ../container-volume-data/mysql-database:/var/lib/mysql
-
-        environment:
-
-            MYSQL_ROOT_PASSWORD: ndMVsRDfzb
-
-            MYSQL_DATABASE: software_shinobi_schema
-
-            MYSQL_USER: software_shinobi
-
-            MYSQL_PASSWORD: ndMVsRDfzbndMVsRDfzb
-
-    software-shinobi-database-manager:
-
-        container_name: software-shinobi-database-manager
-
-        image: beeyev/phpmyadmin-lightweight
-        
-        depends_on:
-
-            - software-shinobi-mysql-database
+            dockerfile: Dockerfile
 
         restart: unless-stopped
 
         networks:
 
-            - network-software-shinobi
+            - network-shinobi-academy
+
+        ports:
+
+            - 3306:3306
+
+        environment:
+
+            MYSQL_ROOT_PASSWORD: aggiepride
+
+            MYSQL_DATABASE: shinobiacademy
+
+            MYSQL_USER: shinobiacademy
+
+            MYSQL_PASSWORD: shinobiacademy
+
+    shinobi-academy-phpmyadmin:
+
+        container_name: shinobi-academy-phpmyadmin
+
+        image: beeyev/phpmyadmin-lightweight
+        
+        restart: unless-stopped
+
+        depends_on:
+
+            - shinobi-academy-database
+
+        networks:
+
+            - network-shinobi-academy
 
         ports:
 
@@ -60,6 +62,6 @@ services:
 
         environment:
 
-            PMA_HOST: software-shinobi-mysql-database
+            PMA_HOST: shinobi-academy-database
 
-            MYSQL_ROOT_PASSWORD: ndMVsRDfzb
+            MYSQL_ROOT_PASSWORD: aggiepride
