@@ -58,7 +58,7 @@ services:
 
         ports:
 
-            - 8888:80
+            - 3380:80
 
         environment:
 
